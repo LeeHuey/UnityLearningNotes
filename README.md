@@ -29,8 +29,46 @@
      if、switch和三元运算符
 
   2. 循环
+  
+     - while循环
+  
+     ```
+     while(condition)
+     {
+        statement(s);
+     }
+     ```
+  
+     - for循环
+  
+     ```
+     for ( init; condition; increment )
+     {
+        statement(s);
+     }
+     ```
+  
+     - foreach循环
+  
+       借助foreach，只能一一取得数组中的元素，**<u>并不能利用这种语句改变</u>**数组所存储的元素
+  
+     - do while循环
+  
+     ```
+     do
+     {
+        statement(s);
+     
+     }while( condition );
+     ```
+  
+- #### C#封装
 
-##### 
+  - public：所有对象都可以访问
+  - private：对象本身在对象内部可以访问
+  - protected：只有该类对象及其子类对象可以访问
+  - ==internal：<u>同一个程序集的对象可以访问</u>==
+  - protected internal：访问限于当前程序集或派生自包含类的类型
 
 
 
