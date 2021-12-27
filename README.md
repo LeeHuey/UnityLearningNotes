@@ -242,7 +242,7 @@
 
   - 预定义特性
 
-    - AttributeUsage：描述了如何使用一个自定义特性类
+    - AttributeUsage：描述了如何使用一个自定义特性类，自定义特性的时候使用。
 
     - Conditional：标记了一个条件方法，其执行依赖于指定的预处理标识符。
 
@@ -266,6 +266,32 @@
     - 构建自定义特性
     - 在目标程序元素上应用自定义特性
     - 通过反射访问特性
+
+- #### C#反射 Reflection
+
+  - 程序可以访问、检测和修改它本身状态或行为的一种能力。用途：
+
+    - 它允许在运行时查看特性（attribute）信息。
+    - 它允许审查集合中的各种类型，以及实例化这些类型。
+    - 它允许延迟绑定的方法和属性（property）。
+    - 它允许在运行时创建新类型，然后使用这些类型执行一些任务。
+
+  - 查看元数据
+
+    **System.Reflection** 类的 **MemberInfo** 对象需要被初始化，用于发现与类相关的特性（attribute）。
+
+    - 遍历类特性
+
+      Type type = typeof(MyClass)
+
+       **foreach** (**Object** attributes **in** type.GetCustomAttributes(**false**))
+
+    - 遍历方法特性
+
+       **foreach** (MethodInfo m **in** type.GetMethods())
+            **foreach** (Attribute a **in** m.GetCustomAttributes(**true**))
+
+  
 
 
 
