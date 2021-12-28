@@ -322,7 +322,7 @@
     
       构建一个名为 *DeBugInfo* 的自定义特性，该特性将存储调试程序获得的信息。
     
-      例子见：[(https://www.runoob.com/csharp/csharp-attribute.html)]
+      例子见：[C#特性](https://www.runoob.com/csharp/csharp-attribute.html)
     
     - 在目标程序元素上应用自定义特性
     
