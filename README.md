@@ -476,6 +476,20 @@
   };
   ```
 
+- #### C#不安全代码
+
+  [C#不安全代码](https://www.runoob.com/csharp/csharp-unsafe-codes.html)
+
+- #### C# 多线程
+
+  - 主线程
+
+    在 C# 中，**System.Threading.Thread** 类用于线程的工作。它允许创建并访问多线程应用程序中的单个线程。进程中第一个被执行的线程称为**主线程**。
+
+    当 C# 程序开始执行时，主线程自动创建。使用 **Thread** 类创建的线程被主线程的子线程调用。您可以使用 Thread 类的 **CurrentThread** 属性访问线程。
+
+  线程是通过扩展 Thread 类创建的。扩展的 Thread 类调用 **Start()** 方法来开始子线程的执行。 **sleep()** 方法的使用，用于在一个特定的时间暂停线程。**Abort()** 方法用于销毁线程。
+
   
 
   
