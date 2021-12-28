@@ -1,5 +1,11 @@
 # UnityLearningNotes
 
+------
+
+
+
+[TOC]
+
 ## 1. C#基础
 
 - #### 数据类型
@@ -227,7 +233,7 @@
 
 - #### C#正则表达式
 
-  [(https://www.runoob.com/regexp/regexp-tutorial.html)]	
+  [正则表达式](https://www.runoob.com/regexp/regexp-tutorial.html)	
 
 - #### C#特性
 
@@ -354,7 +360,43 @@
        **foreach** (MethodInfo m **in** type.GetMethods())
             **foreach** (Attribute a **in** m.GetCustomAttributes(**true**))
 
-  
+- #### C#属性 Property
+
+   **属性（Property）** 是类（class）、结构（structure）和接口（interface）的命名（named）成员。类或结构中的成员变量或方法称为 **域（Field）**。属性（Property）是域（Field）的扩展，且可使用相同的语法来访问。它们使用 **访问器（accessors）** 让私有域的值可被读写或操作。
+
+   - 访问器（Accessors）
+
+     访问器（accessor）声明可包含一个 get 访问器、一个 set 访问器，或者同时包含二者。
+
+     eg.
+
+     ```
+     class XXX {
+     	private name;
+     	// 声明类型为 string 的 Name 属性
+       public String Name {
+         get {
+           return name;
+         }
+         set {
+          name = value;
+         }
+       }
+     }
+     //有了访问器可以用属性相同的语法访问私有属性
+     XXX s = new XXX();
+     s.name = "SSS";
+     ```
+
+   - 抽象属性（Abstract Properties）
+
+     抽象类可拥有抽象属性，这些属性应在派生类中被实现。
+
+     
+
+   ------
+
+   
 
 
 
