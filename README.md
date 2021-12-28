@@ -460,6 +460,22 @@
 
 - #### C#泛型 Generic
 
+  延迟编写类或方法中的编程元素的数据类型的规范，直到实际在程序中使用它的时候。
+
+  [泛型](https://www.runoob.com/csharp/csharp-generic.html)
+
+- #### C#匿名方法
+
+  **匿名方法（Anonymous methods）** 提供了一种传递代码块作为委托参数的技术。匿名方法是通过使用 **delegate** 关键字创建委托实例来声明的。
+
+  ```
+  delegate void NumberChanger(int n);
+  ...
+  NumberChanger nc = delegate(int x) {
+      Console.WriteLine("Anonymous Method: {0}", x); //匿名方法的主体
+  };
+  ```
+
   
 
   
