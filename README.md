@@ -244,7 +244,40 @@
 
     - AttributeUsage：描述了如何使用一个自定义特性类，自定义特性的时候使用。
 
+      ```
+      规定的语法结构：
+      [AttributeUsage(
+         validon, 
+         AllowMultiple=allowmultiple, 
+         Inherited=inherited 
+      )]
+      参数的含义：
+      //参数 validon 规定特性可被放置的语言元素。它是枚举器 AttributeTargets 的值的组合。默认值是 AttributeTargets.All。
+      //参数 allowmultiple（可选的）为该特性的 AllowMultiple 属性（property）提供一个布尔值。如果为 true，则该特性是多用的。默认值是 false（单用的）。
+      //参数 inherited（可选的）为该特性的 Inherited 属性（property）提供一个布尔值。如果为 true，则该特性可被派生类继承。默认值是 false（不被继承）。
+      例子：
+      [AttributeUsage(AttributeTargets.Class |
+      AttributeTargets.Constructor |
+      AttributeTargets.Field |
+      AttributeTargets.Method |
+      AttributeTargets.Property, 
+      AllowMultiple = true)]
+      ```
+
     - Conditional：标记了一个条件方法，其执行依赖于指定的预处理标识符。
+
+      ```
+      规定的语法结构：
+      [Conditional(
+         conditionalSymbol
+      )]
+      eg.
+      #define DEBUG
+      //......
+      [Conditional("DEBUG")]
+      void XXXclass() {......}
+      预定义且被标记的方法会被执行，相当于#if #end预定义的封装。
+      ```
 
     - Obsolete：（过时的）标记了不应被使用的程序实体。
 
@@ -253,8 +286,13 @@
          message,
          iserror
       )]
+      eg.
+      [Obsolete("Don't use OldMethod, use NewMethod instead", true)]
+      static void OldMethod() {
+      	Console.WriteLine("It is the old method");
+      }
       ```
-
+      
       - 参数 *message*，是一个字符串，描述项目为什么过时以及该替代使用什么。
       - 参数 *iserror*，是一个布尔值。如果该值为 true，编译器应把该项目的使用当作一个错误。默认值是 false（编译器生成一个警告）。
 
@@ -263,8 +301,33 @@
     用于存储声明性的信息，且可在运行时被检索。包含4个步骤：
 
     - 声明自定义特性
+    
+      一个新的自定义特性应派生自 **System.Attribute** 类。
+    
+      eg.
+    
+      ```
+      // 一个自定义特性 BugFix 被赋给类及其成员
+      [AttributeUsage(AttributeTargets.Class |
+      AttributeTargets.Constructor |
+      AttributeTargets.Field |
+      AttributeTargets.Method |
+      AttributeTargets.Property,
+      AllowMultiple = true)]
+      
+      public class DeBugInfo : System.Attribute
+      ```
+    
     - 构建自定义特性
+    
+      构建一个名为 *DeBugInfo* 的自定义特性，该特性将存储调试程序获得的信息。
+    
+      例子见：[](https://www.runoob.com/csharp/csharp-attribute.html)
+    
     - 在目标程序元素上应用自定义特性
+    
+      通过把特性放置在紧接着它的目标之前，来应用该特性。
+    
     - 通过反射访问特性
 
 - #### C#反射 Reflection
