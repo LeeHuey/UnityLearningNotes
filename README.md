@@ -392,11 +392,83 @@
 
      抽象类可拥有抽象属性，这些属性应在派生类中被实现。
 
-     
+- #### C# 索引器 Indexer
 
-   ------
+  让一个对象，可以如同数组的下标一样访问。
 
-   
+  ```
+  语法结构：
+  element-type this[int index] {
+     get {
+        // 返回 index 指定的值
+     }
+     set {
+        // 设置 index 指定的值
+     }
+  }
+  ```
+
+  - 重载索引器
+
+    索引器（Indexer）可被重载。索引器声明的时候也可带有多个参数，且每个参数可以是不同的类型。没有必要让索引器必须是整型的。C# 允许索引器可以是其他类型，例如，字符串类型。
+
+- #### C#委托 Delegate
+
+  类似于C/C++的指针，是存有对某个方法的引用的一种引用类型变量。用于实现事件和回调方法，派生自**System.Delegate**类。
+
+  - 声明委托
+
+    ```
+    delegate <return type> <delegate-name> <parameter list>
+    ```
+
+  - 实例化委托
+
+    一旦声明了委托类型，委托对象必须使用 **new** 关键字来创建，且与一个特定的方法有关。当创建委托时，传递到 **new** 语句的参数就像方法调用一样书写，但是不带有参数。
+
+  - 委托的多播
+
+    相同类型的委托可以合并或者移除。
+
+- #### C#事件 Event
+
+  C# 中使用事件机制实现线程间的通信。
+
+  - 通过事件实现委托
+
+    事件在类中声明且生成，且通过使用同一个类或其他类中的委托与事件处理程序关联。包含事件的类用于发布事件。这被称为 **发布器（publisher）** 类。其他接受该事件的类被称为 **订阅器（subscriber）** 类。事件使用 **发布-订阅（publisher-subscriber）** 模型。
+
+    - **发布器（publisher）** 是一个包含事件和委托定义的对象。事件和委托之间的联系也定义在这个对象中。发布器（publisher）类的对象调用这个事件，并通知其他的对象。
+    - **订阅器（subscriber）** 是一个接受事件并提供事件处理程序的对象。在发布器（publisher）类中的委托调用订阅器（subscriber）类中的方法（事件处理程序）。
+
+  - 声明事件
+
+    ```
+    首先声明委托类型:
+    public delegate void TestEventHandler(string status);
+    然后声明事件本身:
+    public event TestEventHandler TestEvent;
+    ```
+
+    [C#事件](https://www.runoob.com/csharp/csharp-event.html)
+
+- #### C#集合 Collection
+
+  集合类是提供数据存储和检索的类。参考链接，[C#集合](https://www.runoob.com/csharp/csharp-collection.html)。
+
+  
+
+- #### C#泛型 Generic
+
+  
+
+  
+
+  
+
+  ------
+
+  
 
 
 
