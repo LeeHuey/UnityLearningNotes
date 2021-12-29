@@ -490,15 +490,28 @@
 
   线程是通过扩展 Thread 类创建的。扩展的 Thread 类调用 **Start()** 方法来开始子线程的执行。 **sleep()** 方法的使用，用于在一个特定的时间暂停线程。**Abort()** 方法用于销毁线程。
 
-  
-
-  
-
-  
-
   ------
 
-  
+## 2 . Unity基础
+
+1. #### 基础知识
+
+   - 工具Unity Hub管理多版本；
+   - 引擎中，导航菜单栏 WIndows->Package Manager菜单项，打开资源包管理器；
+   - 资源商店 Assert Store；
+   - 示例项目的打包与发布；
+
+2. #### 编辑器结构
+
+   - 游戏项目
+
+     - 版本管理
+
+       ==Asserts==目录、==ProjectSettings==目录、==UnityPackageManager==目录<u>**需要版本管理**</u>
+
+       ~~Library目录（根据Asserts中的游戏资源生成的中间文件）、Temp目录（根据Library生成过程中产生的临时文件）~~<u>**不用版本管理**</u>
+
+       
 
 
 
