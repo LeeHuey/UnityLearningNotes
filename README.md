@@ -16,7 +16,7 @@
 
      （1）内置
 
-     - Object
+     - object
 
        **装箱和拆箱**是值类型和引用类型之间相互转换是要执行的操作。
 
@@ -34,9 +34,9 @@
           int value = (int) objValue;
           ```
 
-     - Dynamic：运行期类型检查
+     - dynamic：运行期类型检查
 
-     - String：
+     - string：
 
      （2）用户定义
 
