@@ -512,7 +512,25 @@
 
 ## 2 . tolua#
 
-​		ToLua提供了一套中间层导出工具，对于需要访问的CLR、Unity及自定义类预生成wrap文件，lua访问时只访问wrap文件，wrap文件接收lua传递来的参数，进行类型（值、对象、委托）转换，再调用真正工作的CLR对象和函数，最后将返回值返回给lua，有效地提高了效率。	
+​		ToLua提供了一套中间层导出工具，对于需要访问的CLR、Unity及自定义类预生成wrap文件，lua访问时只访问wrap文件，wrap文件接收lua传递来的参数，进行类型（值、对象、委托）转换，再调用真正工作的CLR对象和函数，最后将返回值返回给lua，有效地提高了效率。
+
+​		Unity C#先是生成tolua C#（warp文件），然后通过这些自动生成的tolua C#和tolua C交互。tolua C 起到承上启下的作用，是C#和lua的中间层，在和C#交互方面，作为非c#托管代码，会提供一些函数让c# DllImport，c#会通过Marshal等与非托管代码交互。
+
+#### 	  Unity C#和lua调用的流程图
+
+​		**Unity C#** <---> **lua c#** <---> **lua c** <---> **lua**
+
+ 1. 编译tolua.dll（各平台不一样），在C#层以DllImport导入接口，然后就可以在C#层调用到C层的方法了。
+
+ 2. C#调用lua
+
+    创建虚拟机——绑定数据——调用Lua代码。
+
+    ToLua直接调用Lua代码的方式有两种：**DoString、DoFile。**这两个只是运行一次，运行之后保存在缓存中。此外还有一个Require方法，这个方法和前两个方法不同的是，ToLua会将调用的Lua文件载入Lua栈中。使用DoFile和Require方法时，要手动给目标文件添加一个文件搜索位置。
+
+ 3. lua调用c#
+
+    ​	ToLua是通过方法名绑定的方式来实现这个映射的，首先**构造一个Lua虚拟机(**LuaState state = new LuaState();**)**，在虚拟机启动后**对所需的方法进行绑定(LuaBinder.Bind(state))**，在虚拟机运行时可以在Lua中调用特定方法，虚拟机变相地实现了一个解释器的功能，在Lua调用特定方法和对象时，虚拟机会在已绑定的方法中找到对应的C#方法和对象进行操作。
 
 ## 3 . Unity基础
 
