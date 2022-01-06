@@ -534,16 +534,25 @@
 
 ## 3 . MVVM
 
-​			**Model–view–viewmodel** (**MVVM**)，软件架构模型，将视图开发与业务逻辑开发相分离，使View不依赖于特定的Model。和MVC、MVP不同，MVVM拥有	Binder（它在视图模型中，自动进行视图与其绑定属性之间的通信），视图模型已被描述为模型中数据的状态。
+- ​	**Model–view–viewmodel** (**MVVM**)，软件架构模型，将视图开发与业务逻辑开发相分离，使View不依赖于特定的Model。和MVC、MVP不同，MVVM拥有	Binder（它在视图模型中，自动进行视图与其绑定属性之间的通信），视图模型已被描述为模型中数据的状态。
 
 ​			<img src="MVVM.png" style="zoom:58%;" />
 
-​	可细分成M-C-VM-V四层架构来理解。
+At the highest level, the view "knows about" the view model, and the view model "knows about" the model, but the model is unaware of the view model, and the view model is unaware of the view.	
 
-- M(odel)层：定义数据结构，建立应用的抽象模型。
-- C(ontroller)层：实现业务逻辑，向上暴露数据更新的接口，调用Model层来进行模型数据的增删改查，以达到应用数据更新的目的。
-- V(iew)-M(odel)层：将Model层的抽象模型转换为视图模型用于展示，同时将视图交互事件绑定到Controller层的数据更新接口上。
-- V(iew)层：将视图模型通过特定的GUI展示出来，并在GUI控件上绑定视图交互事件。
+- 可从M-C-VM-V四层架构来理解：
+
+  - M(odel)层：定义数据结构，建立应用的抽象模型。
+
+  - C(ontroller)层：实现业务逻辑，向上暴露数据更新的接口，调用Model层来进行模型数据的增删改查，以达到应用数据更新的目的。
+
+  - V(iew)-M(odel)层：将Model层的抽象模型转换为视图模型用于展示，同时将视图交互事件绑定到Controller层的数据更新接口上。
+
+  - V(iew)层：将视图模型通过特定的GUI展示出来，并在GUI控件上绑定视图交互事件。
+
+- MVVM在Unity中的应用
+
+  
 
 ## 4 . Unity基础
 
