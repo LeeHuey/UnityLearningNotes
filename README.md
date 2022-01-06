@@ -536,7 +536,7 @@
 
 ​			**Model–view–viewmodel** (**MVVM**)，软件架构模型，将视图开发与业务逻辑开发相分离，使View不依赖于特定的Model。和MVC、MVP不同，MVVM拥有	Binder（它在视图模型中，自动进行视图与其绑定属性之间的通信），视图模型已被描述为模型中数据的状态。
 
-​	<img src="/Users/lixu/Desktop/MVVM.png" alt="MVVM" style="zoom:67%;" />
+​			<img src="MVVM.png" style="zoom:58%;" />
 
 ​	可细分成M-C-VM-V四层架构来理解。
 
